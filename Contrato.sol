@@ -12,14 +12,19 @@ contract Contrato {
 
     address private cliente;
     address private propretario;
+    string nomeInquilino;
+    string nomePropretario;
+    string enderaco;
+    bool ativo;
+    
 
     // event for EVM logging
     event ContratoSet(address indexed oldContrao, address indexed newContrato);
 
     // modifier to check if caller is owner
     modifier isContrato() {
-        require(msg.sender == owner, "Caller is not owner");
-        _;
+        require(msg.sender == contrato, "Nao conseguimos montar o contrato");
+        contrato = newContrato;
     }
 
     /**
@@ -27,13 +32,8 @@ contract Contrato {
      */
     constructor() {
         console.log("Construindo Contrado");
-       
     }
 
-    /**
-     * @dev Change owner
-     * @param newOwner address of new owner
-     */
     function mudandoContrato(address Contrato) public Contrado {
         emit ContratoSet(owner, newOwner);
         contratto = newContrato;
@@ -60,8 +60,6 @@ contract Contrato {
     }
 
     function iscontratoVencito(){
-
+        return ativo;
     }
-
-    
 } 
